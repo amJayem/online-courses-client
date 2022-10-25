@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const LeftNav = () => {
   return (
     <div>
-      <ul className="hidden lg:menu bg-base-100 w-56 rounded-box">
-      <div className="dropdown dropdown-end">
+      <ul className="bg-base-100  rounded-box p-5">
+      <div className="dropdown dropdown-hover">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
+          <div className=" rounded-full">
             <img src="https://placeimg.com/80/80/people" alt="" />
           </div>
         </label>
