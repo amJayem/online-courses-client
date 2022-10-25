@@ -10,7 +10,7 @@ const Header = () => {
       </div>
       <div
         className="hero min-h-screen"
-        style={{ backgroundImage: `url(${bg})` }}
+        style={{ backgroundImage: `url(${bg})`}}
         >
         <div className="hero-overlay bg-opacity-40"></div>
         <div className=" text-left text-neutral-content">
