@@ -1,8 +1,11 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthProvider";
 // import logo from '../assets/logo/logo.png'
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext);
   return (
     <div>
       <div className="navbar bg-primary text-white">
@@ -10,6 +13,11 @@ const Navbar = () => {
           <Link to="/" className="btn btn-ghost normal-case text-xl bg-neutral rounded-2xl">
             eTutor
           </Link>
+          {
+            user?.uid ? 
+            <p>{user.displayName}</p>
+            : 'not log in'
+          }
         </div>
         <div className="flex gap-2">
           {/* menu for mobile device */}
@@ -20,9 +28,16 @@ const Navbar = () => {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/courses">Courses</Link></li>
                 <li><Link to="/blog">Blog</Link></li>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/register">Register</Link></li>
-                <li><Link to="/logout">Logout</Link></li>
+                
+                {
+                  user?.uid?
+                  <li><Link to="/logout">Logout</Link></li>
+                  :
+                  <>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/register">Register</Link></li>
+                  </>
+                }
               </ul>
             </div>
           </div>
@@ -31,9 +46,15 @@ const Navbar = () => {
             <Link to="/">Home</Link>
             <Link to="/courses">Courses</Link>
             <Link to="/blog">Blog</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-            <Link to="/logout">Logout</Link>
+              {
+                  user?.uid?
+                  <li><Link to="/logout">Logout</Link></li>
+                  :
+                  <>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/register">Register</Link></li>
+                  </>
+              }
           </div>
 
           <div className="">
@@ -48,7 +69,9 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src="https://placeimg.com/80/80/people" alt="" />
+                  <img src={user?.uid ? 
+                    <>{user.photoURL}</>
+                    : "https://placeimg.com/80/80/people"} alt="" />
                 </div>
               </label>
               <ul

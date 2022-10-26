@@ -35,7 +35,7 @@ const Login = () => {
                     id="email"
                     name="email"
                     type="email"
-                    autocomplete="email"
+                    autoComplete="email"
                     required
                     className="w-full border border-gray-300 px-3 py-2 shadow-sm focus:outline-none rounded-lg"
                   />
@@ -44,7 +44,7 @@ const Login = () => {
 
               <div>
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Password
@@ -54,7 +54,7 @@ const Login = () => {
                     id="password"
                     name="password"
                     type="password"
-                    autocomplete="current-password"
+                    autoComplete="current-password"
                     required
                     className="w-full border border-gray-300 px-3 py-2 shadow-sm focus:outline-none rounded-lg"
                   />
@@ -69,7 +69,7 @@ const Login = () => {
                   className=""
                 />
                 <label
-                  for="terms-and-privacy"
+                  htmlFor="terms-and-privacy"
                   className="ml-2 block text-sm text-gray-900"
                 >
                   I agree to the
