@@ -14,10 +14,11 @@ const Main = () => {
         <Navbar />
       </div>
       <div className="px-28">
-        <Header></Header>
-        <div className="desktop:flex max-mobile:flex-col  justify-between mt-10 ">
+        {/* <Header></Header> */} 
+        {/* desktop:flex max-mobile:flex-col */}
+        <div className="flex  justify-between mt-10 ">
           <div className="mobile:hidden desktop:menu shrink w-1/6">
-            <LeftNav></LeftNav>
+            {/* <LeftNav></LeftNav> */}
           </div>
 
           <div className="flex-auto">
@@ -25,7 +26,7 @@ const Main = () => {
           </div>
 
           <div className="flex-1">
-            <RightNav />
+            {/* <RightNav /> */}
           </div>
         </div>
       </div>

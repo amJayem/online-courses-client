@@ -5,17 +5,19 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-primary text-white">
         <div className="flex-1">
-          <Link className="btn btn-ghost normal-case text-xl">eTutor</Link>
+          <Link to="/" className="btn btn-ghost normal-case text-xl bg-neutral rounded-2xl">
+            eTutor
+          </Link>
         </div>
         <div className="flex-none gap-2">
-            <Link to='/'>Home</Link>
-            <Link to='/courses'>Courses</Link>
-            <Link to='/blog' >Blog</Link>
-            <Link to='/login'>Login</Link>
-            <Link to='/register'>Register</Link>
-            <Link to='/logout'>Logout</Link>
+          <Link to="/">Home</Link>
+          <Link to="/courses">Courses</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+          <Link to="/logout">Logout</Link>
 
           <div className="ml-5 form-control">
             <input
@@ -27,7 +29,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" alt=""/>
+                <img src="https://placeimg.com/80/80/people" alt="" />
               </div>
             </label>
             <ul
