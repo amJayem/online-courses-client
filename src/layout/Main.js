@@ -1,16 +1,16 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import LeftNav from "../components/LeftNav";
 import Navbar from "../components/Navbar";
 import RightNav from "../components/RightNav";
-import Home from "../Pages/Home";
 import './Main.css';
 
 const Main = () => {
   return (
     <div className="main-container">
-      <div className="desktop:hidden sticky top-0">
+      <div className=" sticky top-0">
         <Navbar />
       </div>
       <div className="px-28">
@@ -21,7 +21,7 @@ const Main = () => {
           </div>
 
           <div className="flex-auto">
-            <Home />
+            <Outlet></Outlet>
           </div>
 
           <div className="flex-1">

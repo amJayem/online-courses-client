@@ -10,9 +10,12 @@ const Navbar = () => {
           <Link className="btn btn-ghost normal-case text-xl">eTutor</Link>
         </div>
         <div className="flex-none gap-2">
-            <Link />Home
-            <Link />Courses
-            <Link />Blog
+            <Link to='/'>Home</Link>
+            <Link to='/courses'>Courses</Link>
+            <Link to='/blog' >Blog</Link>
+            <Link to='/login'>Login</Link>
+            <Link to='/register'>Register</Link>
+            <Link to='/logout'>Logout</Link>
 
           <div className="ml-5 form-control">
             <input
