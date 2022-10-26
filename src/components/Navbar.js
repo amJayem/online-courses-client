@@ -11,45 +11,67 @@ const Navbar = () => {
             eTutor
           </Link>
         </div>
-        <div className="flex-none gap-2">
-          <Link to="/">Home</Link>
-          <Link to="/courses">Courses</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
-          <Link to="/logout">Logout</Link>
+        <div className="flex gap-2">
+          {/* menu for mobile device */}
+          <div className="desktop:hidden">
+            <div className=" dropdown">
+              <label tabIndex={0} className="btn m-1 bg-primary">Click</label>
+              <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/courses">Courses</Link></li>
+                <li><Link to="/blog">Blog</Link></li>
+                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/register">Register</Link></li>
+                <li><Link to="/logout">Logout</Link></li>
+              </ul>
+            </div>
+          </div>
+          {/* menu for desktop */}
+          <div className="desktop:flex gap-2 hidden">
+            <Link to="/">Home</Link>
+            <Link to="/courses">Courses</Link>
+            <Link to="/blog">Blog</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+            <Link to="/logout">Logout</Link>
+          </div>
 
-          <div className="ml-5 form-control">
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered"
-            />
+          <div className="">
+
+            <div className="ml-5 form-control">
+              <input
+                type="text"
+                placeholder="Search"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src="https://placeimg.com/80/80/people" alt="" />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <Link className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link>Settings</Link>
+                </li>
+                <li>
+                  <Link>Logout</Link>
+                </li>
+              </ul>
+            </div>
+
           </div>
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" alt="" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </Link>
-              </li>
-              <li>
-                <Link>Settings</Link>
-              </li>
-              <li>
-                <Link>Logout</Link>
-              </li>
-            </ul>
-          </div>
+
         </div>
       </div>
     </div>

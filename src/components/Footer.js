@@ -4,9 +4,9 @@ import bg from '../assets/logo/logo.png'
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-primary text-white">
+      <footer className="mt-10 footer p-10 bg-primary text-white">
         <div>
-            <img className="bg-neutral rounded-3xl w-28 h-28" src={bg} alt="" />
+            <img className="bg-neutral-focus rounded-3xl w-1/3" src={bg} alt="" />
           {/* <svg
             width="50"
             height="50"
