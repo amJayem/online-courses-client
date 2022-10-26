@@ -6,18 +6,16 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const Register = () => {
-  const { user, providerLogin } = useContext(AuthContext);
+  const { providerLogin, createUser } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
 
   const handleGoogle = () => {
-    console.log('btn clicked');
     providerLogin(googleProvider)
       .then((res) => {
-        const user = res.user;
-        console.log(user);
+        // console.log(res.user);
       })
-      .catch((e) => console.error("e => ", e));
+      .catch((e) => console.error("register error => ", e));
   };
 
   const handleSubmit = (e) => {
@@ -25,8 +23,17 @@ const Register = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    form.reset();
     console.log("btn clicked", email, password);
+
+    createUser(email, password)
+    .then(res=>{
+        const user = res.user;
+        console.log(user);
+    })
+    .catch(e=>console.log('create user error => ', e))
   };
+
   return (
     <div>
       <div className="mt-10 bg-gray-100 flex flex-col justify-center ">
@@ -116,17 +123,18 @@ const Register = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="mb-2 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Sign up
                 </button>
-                <hr />
               </div>
             </form>
+
+            <div className="divider"></div>
             <button
               onClick={handleGoogle}
               type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md text-sm font-medium text-white hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg"
+              className="mb-2 w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-white hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg"
             >
               <span className="text-black mr-1">Sign up with </span>
               <span className="text-blue-500 font-semibold "> G</span>
@@ -135,6 +143,13 @@ const Register = () => {
               <span className="text-blue-500 font-semibold ">g</span>
               <span className="text-green-600 font-semibold ">l</span>
               <span className="text-red-500 font-semibold ">e</span>
+            </button>
+            <button
+              onClick={handleGoogle}
+              type="submit"
+              className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-white bg-black hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg"
+            >
+              <span className="text-white mr-1">Sign up with Github</span>
             </button>
           </div>
         </div>

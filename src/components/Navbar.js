@@ -5,7 +5,14 @@ import { AuthContext } from "../contexts/AuthProvider";
 // import logo from '../assets/logo/logo.png'
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext);
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = () =>{
+    logOut()
+    .then(()=>{})
+    .catch(e=>console.log('log out error: ',e));
+  }
+
   return (
     <div>
       <div className="navbar bg-primary text-white">
@@ -13,11 +20,6 @@ const Navbar = () => {
           <Link to="/" className="btn btn-ghost normal-case text-xl bg-neutral rounded-2xl">
             eTutor
           </Link>
-          {
-            user?.uid ? 
-            <p>{user.displayName}</p>
-            : 'not log in'
-          }
         </div>
         <div className="flex gap-2">
           {/* menu for mobile device */}
@@ -25,17 +27,17 @@ const Navbar = () => {
             <div className=" dropdown">
               <label tabIndex={0} className="btn m-1 bg-primary">Click</label>
               <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/courses">Courses</Link></li>
-                <li><Link to="/blog">Blog</Link></li>
+               <Link to="/">Home</Link>
+               <Link to="/courses">Courses</Link>
+               <Link to="/blog">Blog</Link>
                 
                 {
                   user?.uid?
-                  <li><Link to="/logout">Logout</Link></li>
+                  <Link onClick={logOut}>Logout</Link>
                   :
                   <>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/register">Register</Link></li>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
                   </>
                 }
               </ul>
@@ -48,11 +50,12 @@ const Navbar = () => {
             <Link to="/blog">Blog</Link>
               {
                   user?.uid?
-                  <li><Link to="/logout">Logout</Link></li>
+                 <Link onClick={logOut}>
+                    Logout</Link>
                   :
                   <>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/register">Register</Link></li>
+                   <Link to="/login">Login</Link>
+                   <Link to="/register">Register</Link>
                   </>
               }
           </div>
@@ -70,8 +73,8 @@ const Navbar = () => {
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   <img src={user?.uid ? 
-                    <>{user.photoURL}</>
-                    : "https://placeimg.com/80/80/people"} alt="" />
+                    `${user.photoURL}`
+                    : "https://placeimg.com/80/80/any"} alt="" />
                 </div>
               </label>
               <ul
@@ -79,16 +82,21 @@ const Navbar = () => {
                 className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link className="justify-between">
-                    Profile
+                  {
+                    user?.uid?
+                    <Link className="justify-between">
+                    {user.email}
                     <span className="badge">New</span>
-                  </Link>
+                    </Link>
+                    :
+                    'No User is logged in'
+                  }
                 </li>
                 <li>
                   <Link>Settings</Link>
                 </li>
                 <li>
-                  <Link>Logout</Link>
+                  <Link onClick={handleLogOut}>Logout</Link>
                 </li>
               </ul>
             </div>
