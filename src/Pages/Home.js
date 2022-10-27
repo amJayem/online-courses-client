@@ -14,8 +14,8 @@ const Home = () => {
           key={course.id}
           course = {course}
           >
-
           </CoursesCard>
+          
           )
       }
     </div>

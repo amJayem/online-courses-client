@@ -12,6 +12,7 @@ import Navbar from "react-bootstrap/Navbar";
 const Navber = () => {
   const { user, logOut } = useContext(AuthContext);
 
+  // console.log(user);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -22,25 +23,25 @@ const Navber = () => {
     <Navbar className="bg mb-5" bg="" expand="lg">
       <Container>
         <Navbar>
-          <Link className="name" to="/">
+          <Link className="text" to="/">
             eTutor
           </Link>
         </Navbar>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">
-              <Link to="/">Home</Link>
+            <Nav.Link>
+              <Link className="text" to="/">Home</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/courses">Courses</Link>
+              <Link className="text" to="/courses">Courses</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/blog">Blog</Link>
+              <Link className="text" to="/blog">Blog</Link>
             </Nav.Link>
             {user?.uid ? (
               <Nav.Link>
-                <Link onClick={handleLogOut}>Logout</Link>
+                <Link className="text" onClick={handleLogOut}>Logout</Link>
               </Nav.Link>
             ) : (
               <>
@@ -53,8 +54,9 @@ const Navber = () => {
               </>
             )}
           </Nav>
-          <div>
-            <p className="">{ user?.displayName || user?.email}</p>
+          <div className="d-flex align-items-center">
+            <Nav.Link className="bg-white text-black p-1 fw-bold">{ user?.displayName || user?.email}</Nav.Link>
+            <img className="profile-img" src={user?.photoURL} alt=""/>
           </div>
         </Navbar.Collapse>
       </Container>

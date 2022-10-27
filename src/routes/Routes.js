@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../layout/Main';
 import Blog from '../Pages/Blog';
 import Cart from '../Pages/Cart';
+import CourseDetails from '../Pages/CourseDetails';
 import Courses from '../Pages/Courses';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
@@ -38,7 +39,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/cart',
                 element: <Cart></Cart>
-            }
+            },
+            {
+                path: '/course-details/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({params})=>fetch(`https://10-learning-platform-server.vercel.app/course-details/${params.id}`)
+            },
         ]
     }
 ])
