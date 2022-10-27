@@ -70,8 +70,8 @@ const Navbar = () => {
               />
             </div>
             <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
+              <label tabIndex={0} className="avatar btn btn-ghost btn-circle avatar">
+                <div className="w-10 mask mask-hexagon">
                   <img src={user?.uid ? 
                     `${user.photoURL}`
                     : "https://placeimg.com/80/80/any"} alt="" />

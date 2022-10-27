@@ -2,13 +2,18 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    screens: {
-      mobile: "400px",
-      // => @media (min-width: 640px) { ... }
-      desktop: "1024px",
-      // => @media (min-width: 1024px) { ... }
-    },
     extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 };
+
+/**
+ * 
+    screens: {
+      mobile: "450px",
+      // => @media (min-width: 640px) { ... }
+      desktop: "1000px",
+      // => @media (min-width: 1024px) { ... }
+    },
+ * 
+ */

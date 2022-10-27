@@ -15,7 +15,8 @@ export const routes = createBrowserRouter([
         children:[
             {
                 path: '/',
-                element: <Home/>
+                element: <Home/>,
+                loader: ()=> fetch('https://10-learning-platform-server.vercel.app/course-details')
             },
             {
                 path: '/blog',
@@ -23,7 +24,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <Courses></Courses>,
+                loader: ()=> fetch('https://10-learning-platform-server.vercel.app/course-details')
             },
             {
                 path: '/login',
