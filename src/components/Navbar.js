@@ -85,7 +85,7 @@ const Navbar = () => {
                   {
                     user?.uid?
                     <Link className="justify-between">
-                    {user.email}
+                    {user.email || user.displayName}
                     <span className="badge">New</span>
                     </Link>
                     :

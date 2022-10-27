@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import bg from "../assets/logo/logo.png";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 
@@ -9,6 +9,13 @@ const Register = () => {
   const { providerLogin, createUser } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  const handleGithub = () =>{
+    providerLogin(githubProvider)
+    .then(res=>console.log(res.user))
+    .catch(e=>console.error('github login error => ',e))
+  }
 
   const handleGoogle = () => {
     providerLogin(googleProvider)
@@ -145,7 +152,7 @@ const Register = () => {
               <span className="text-red-500 font-semibold ">e</span>
             </button>
             <button
-              onClick={handleGoogle}
+              onClick={handleGithub}
               type="submit"
               className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-white bg-black hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg"
             >
