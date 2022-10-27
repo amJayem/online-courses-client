@@ -39,6 +39,9 @@ const Navber = () => {
             <Nav.Link>
               <Link className="text" to="/blog">Blog</Link>
             </Nav.Link>
+            <Nav.Link>
+              <Link className="text">FAQ</Link>
+            </Nav.Link>
             {user?.uid ? (
               <Nav.Link>
                 <Link className="text" onClick={handleLogOut}>Logout</Link>
