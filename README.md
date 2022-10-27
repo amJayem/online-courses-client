@@ -4,4 +4,4 @@
 -   Mobile and desktop responsive
 -   Premium access is protected, without login you can't access it
 -   Bootstrap css framework has been used
--   [Live site] (https://amjayem-learning-platform.netlify.app/).
+-   [Live site](https://amjayem-learning-platform.netlify.app/).
