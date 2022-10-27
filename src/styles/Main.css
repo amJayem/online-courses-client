@@ -1,0 +1,19 @@
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    color: black;
+}
+.name{
+    font-weight: bold;
+}
+.main-container{
+    background-color: #F5F6FA;
+}
+
+.logo img{
+    width: 20%;
+    border-radius: 10px;
+}
