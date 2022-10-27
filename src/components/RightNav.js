@@ -1,21 +1,18 @@
 import React from "react";
+import { Link, useLoaderData } from "react-router-dom";
 
 const RightNav = () => {
+  const course = useLoaderData();
+  // console.log(course);
   return (
-    <div>
-      <div className="flex flex-col w-full">
-        <div className="grid h-20 card bg-base-300 rounded-box place-items-center">
-          Sign up with Google
-        </div>
-        <div className=""><hr /></div>
-        <div className="grid h-20 card bg-base-300 rounded-box place-items-center">
-          Sign up with Github
-        </div>
+    <div >
+      <div className="">
+        {course.map((crs) => (
+          <div>
+            <Link to={`/course-details/${crs.id}`}>{crs.courseName}</Link>
+          </div>
+        ))}
       </div>
-        <div className=""><hr /></div>
-        <div className="grid h-20 card bg-base-300 rounded-box place-items-center">
-          Sign up with Email
-        </div>
     </div>
   );
 };

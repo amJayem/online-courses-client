@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import RightNav from '../components/RightNav';
 import Main from '../layout/Main';
 import Blog from '../Pages/Blog';
 import Cart from '../Pages/Cart';
@@ -26,6 +27,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
+                loader: ()=> fetch('https://10-learning-platform-server.vercel.app/course-details')
+            },
+            {
+                path: '/courses',
+                element: <RightNav></RightNav>,
                 loader: ()=> fetch('https://10-learning-platform-server.vercel.app/course-details')
             },
             {
