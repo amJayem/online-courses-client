@@ -7,7 +7,7 @@ const CourseDetails = () => {
   const course = useLoaderData();
   // console.log(course);
 
-  const { courseName, courseDetails, bookImg, suggestedBooks } = course;
+  const { id, courseName, courseDetails, bookImg, suggestedBooks } = course;
   return (
       <Card className="mb-3" style={{ width: "18rem" }}>
         <Card.Img className="" variant="top" src={bookImg} />
@@ -17,7 +17,7 @@ const CourseDetails = () => {
           <Card.Title>Suggested Book:</Card.Title>
           <Card.Text>{suggestedBooks}</Card.Text>
           <Button variant="success">
-            <Link className="text" to="/">
+            <Link className="text" to={`/cart/${id}`}>
               Go to Premium access
             </Link>
           </Button>

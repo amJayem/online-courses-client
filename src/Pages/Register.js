@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo/logo.png";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { useContext } from "react";
@@ -9,6 +9,9 @@ import Form from "react-bootstrap/Form";
 import { ButtonGroup } from "react-bootstrap";
 
 const Register = () => {
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
   const { providerLogin, createUser } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
@@ -16,7 +19,7 @@ const Register = () => {
 
   const handleGithub = () => {
     providerLogin(githubProvider)
-      .then((res) => console.log(res.user))
+      .then((res) => {console.log(res.user); navigate('/');})
       .catch((e) => console.error("github login error => ", e));
   };
 
@@ -24,6 +27,7 @@ const Register = () => {
     providerLogin(googleProvider)
       .then((res) => {
         // console.log(res.user);
+        navigate('/');
       })
       .catch((e) => console.error("register error => ", e));
   };
@@ -39,9 +43,13 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
-        console.log(user);
+        // console.log(user);
+        setError('');
+        navigate('/');
       })
-      .catch((e) => console.log("create user error => ", e));
+      .catch((e) => {console.log("create user error => ", e)
+      setError(e.message);
+    });
   };
 
   return (
@@ -81,6 +89,7 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
+        <p className="text-danger">{error}</p>
         <Button variant="primary" type="submit">
           Register
         </Button>

@@ -6,9 +6,11 @@ import Blog from '../Pages/Blog';
 import Cart from '../Pages/Cart';
 import CourseDetails from '../Pages/CourseDetails';
 import Courses from '../Pages/Courses';
+import ErrorPage from '../Pages/ErrorPage';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
+import PrivateRoute from './PrivateRoute';
 
 export const routes = createBrowserRouter([
     {
@@ -51,6 +53,17 @@ export const routes = createBrowserRouter([
                 element: <CourseDetails></CourseDetails>,
                 loader: ({params})=>fetch(`https://10-learning-platform-server.vercel.app/course-details/${params.id}`)
             },
+            {
+                path: '/cart/:id',
+                element: <PrivateRoute>
+                    <Cart></Cart>
+                </PrivateRoute>,
+                loader: ({params})=>fetch(`https://10-learning-platform-server.vercel.app/course-details/${params.id}`)
+            },
+            {
+                path: '*',
+                element: <ErrorPage></ErrorPage>
+            }
         ]
     }
 ])

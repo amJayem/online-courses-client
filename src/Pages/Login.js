@@ -6,8 +6,16 @@ import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { ButtonGroup } from "react-bootstrap";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+
   const { signIn, providerLogin } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
@@ -15,16 +23,26 @@ const Login = () => {
 
   const handleGithub = () => {
     providerLogin(githubProvider)
-      .then((res) => console.log(res.user))
-      .catch((e) => console.error("github login error => ", e));
+      .then((res) => {
+        console.log(res.user);
+        navigate("/");
+      })
+      .catch((e) => {
+        console.error("github login error => ", e);
+        setError(e.message);
+      });
   };
 
   const handleGoogle = () => {
     providerLogin(googleProvider)
       .then((res) => {
         // console.log(res.user);
+        navigate('/');
       })
-      .catch((e) => console.error("register error => ", e));
+      .catch((e) => {
+        console.error("register error => ", e);
+        setError(e.message);
+      });
   };
 
   const handleSubmit = (e) => {
@@ -36,9 +54,15 @@ const Login = () => {
 
     signIn(email, password)
       .then((res) => {
+        form.reset();
+        setError("");
+        navigate(from, {replace: true});
         // console.log('sign in: ',res.user);
       })
-      .catch((e) => console.error("sign in error => ", e));
+      .catch((e) => {
+        setError(e.message);
+        console.error("sign in error => ", e);
+      });
   };
 
   return (
@@ -67,34 +91,21 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
+        <p className="text-danger">{error}</p>
         <Button variant="primary" type="submit">
           Login
         </Button>
       </Form>
 
       <ButtonGroup vertical>
-        <Button onClick={handleGoogle} className="mb-1">Login with Google</Button>
-        
-        <Button onClick={handleGithub}>Login with Github</Button>
+        <Button variant="warning" onClick={handleGoogle} className="mb-1">
+          Login with Google
+        </Button>
+
+        <Button variant="dark" onClick={handleGithub}>Login with Github</Button>
       </ButtonGroup>
     </div>
   );
 };
 
 export default Login;
-
-{
-  /* <button
-onClick={handleGoogle}
-type="submit"
-className="mb-2 w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-white hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg"
->
-<span className="text-black mr-1">Log in with </span>
-<span className="text-blue-500 font-semibold "> G</span>
-<span className="text-red-500 font-semibold ">o</span>
-<span className="text-yellow-500 font-semibold ">o</span>
-<span className="text-blue-500 font-semibold ">g</span>
-<span className="text-green-600 font-semibold ">l</span>
-<span className="text-red-500 font-semibold ">e</span>
-</button> */
-}
