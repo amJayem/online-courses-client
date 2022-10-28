@@ -8,9 +8,9 @@ const RightNav = () => {
     <div >
       <div className="">
         {course.map((crs) => (
-          <div>
-            <Link to={`/course-details/${crs.id}`}>{crs.courseName}</Link>
-          </div>
+          <ul>
+            <li><Link to={`/course-details/${crs.id}`}>{crs.courseName}</Link></li>
+          </ul>
         ))}
       </div>
     </div>

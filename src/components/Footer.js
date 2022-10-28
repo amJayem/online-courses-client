@@ -18,10 +18,10 @@ const Footer = () => {
         </div>
           
           <div className="ms-2 d-flex  flex-sm-row">
-            <Link className="text"><FaFacebook className="me-2"/></Link>
-            <Link className="text"><FaYoutube className="me-2"/></Link>
-            <Link className="text"><FaWhatsapp className="me-2"/></Link>
-            <Link className="text"><FaFirefoxBrowser className="me-2"/></Link>
+            <Link className="social-icon"><FaFacebook/></Link>
+            <Link className="social-icon"><FaYoutube/></Link>
+            <Link className="social-icon"><FaWhatsapp/></Link>
+            <Link className="social-icon"><FaFirefoxBrowser/></Link>
           </div>
           
       </footer>

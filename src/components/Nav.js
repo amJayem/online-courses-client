@@ -22,6 +22,9 @@ const Nav = () => {
           <Link to="/" className="text me-2">
             Home
           </Link>
+          <Link to="/courses" className="text me-2">
+            Courses
+          </Link>
           <Link to="/blog" className="text me-2">
             Blog
           </Link>
@@ -52,15 +55,15 @@ const Nav = () => {
             <FaUserAltSlash />
           )}
           {user?.uid ? (
-            <Link onClick={handleLogOut} className="text m-1">
+            <Link onClick={handleLogOut} className="m-1">
               <Button variant="warning">Logout</Button>
             </Link>
           ) : (
             <>
-              <Link to="/register" className="text m-1">
+              <Link to="/register" className="m-1">
                 <Button>Register</Button>
               </Link>
-              <Link to="/login" className="text me-1">
+              <Link to="/login" className="me-1">
                 <Button variant="dark">Login</Button>
               </Link>
             </>

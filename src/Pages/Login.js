@@ -66,9 +66,9 @@ const Login = () => {
   };
 
   return (
-    <div className="mb-5">
-      <div className="logo">
-        <img className="img-fluid w-2" src={logo} alt="" />
+    <div className="mb-5 ">
+      <div className="">
+        <img className="logo w-2" src={logo} alt="" />
         <h1>Login Now!!</h1>
       </div>
       <Form className="mb-2" onSubmit={handleSubmit}>

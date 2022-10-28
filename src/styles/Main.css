@@ -3,31 +3,61 @@
     padding: 5px;
     border-radius: 15px;
 }
-a{
-    text-decoration: none;
-    color: white;
-}
-
-a:hover{
-    color: black;
-}
 .text{
     font-weight: bold;
     text-decoration: none;
     color: white;
+    padding: 2px;
 }
+
+.text:hover{
+    background-color: ivory;
+    border-radius: 15px;
+}
+
+.social-icon{
+    text-decoration: none;
+    color: white;
+    margin-right: 5px;
+}
+
+.social-icon:hover{
+    color: black;
+    border-radius: 15px;
+}
+
 .main-container{
     background-color: #F5F6FA;
 }
 
-.logo img{
-    width: 20%;
-    border-radius: 10px;
+.logo{
+    width: 100px;
 }
 
 .profile-img{
     width: 50px;
     border-radius: 50%;
+}
+
+.book-img{
+    width: 50%;
+}
+
+.book-card{
+    background-color: #B8E8FC;
+    border-radius: 25px;
+    width: 45%;
+    box-shadow: 0 0 15px -5px;
+    transition: 0.5s;
+    animation: ease-in-out;
+}
+.book-card:hover{
+    transform: scale(1.009);
+    box-shadow: 0 0 15px 0;
+}
+
+.card-details{
+    /* width: 50px; */
 }
 
 .right-nav a{

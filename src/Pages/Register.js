@@ -54,8 +54,8 @@ const Register = () => {
 
   return (
     <div className="mb-5">
-      <div className="logo">
-        <img className="img-fluid w-2" src={logo} alt="" />
+      <div className="">
+        <img className="logo w-2" src={logo} alt="" />
         <h1>Register Here!!</h1>
       </div>
       <Form className="mb-2" onSubmit={handleSubmit}>
@@ -96,11 +96,11 @@ const Register = () => {
       </Form>
 
       <ButtonGroup vertical>
-        <Button onClick={handleGoogle} className="mb-1">
+        <Button variant="warning" onClick={handleGoogle} className="mb-1">
           Register with Google
         </Button>
 
-        <Button onClick={handleGithub}>Register with Github</Button>
+        <Button variant="dark" onClick={handleGithub}>Register with Github</Button>
       </ButtonGroup>
     </div>
   );
