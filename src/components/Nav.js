@@ -43,10 +43,10 @@ const Nav = () => {
             <img src={logo} alt="" className="nav-logo" />
           </Link>
         </div>
-        <div className="d-flex flex-column flex-sm-row align-items-center">
+        <div className="d-flex flex-column flex-sm-row align-items-center ">
           
           {user?.uid ? (
-            <Button variant="secondary">
+            <Button variant="none" className="m-2">
               {user?.photoURL ? (
                 <img className="profile-img" src={user.photoURL} alt="" />
               ) : (
@@ -54,30 +54,33 @@ const Nav = () => {
               )}
             </Button>
           ) : (
-            <span  className="p-2"><FaUserAltSlash/></span>
+            <Button className="m-2" variant="secondary"><FaUserAltSlash/></Button>
           )}
+
           {user?.uid ? (
-            <Link onClick={handleLogOut} className="m-1">
+            <Link onClick={handleLogOut} className="m-2 ">
               <Button variant="warning">Logout</Button>
             </Link>
           ) : (
             <>
-              <Link to="/register" className="m-1">
+              <Link to="/register" className="m-2">
                 <Button>Register</Button>
               </Link>
-              <Link to="/login" className="me-1">
+              <Link to="/login" className="m-2">
                 <Button variant="warning">Login</Button>
               </Link>
             </>
           )}
+
           { toggle?
-            <Button onClick={handleToggle} variant="light"  className="me-2">
-              <span className="mx-2">
+            <Button onClick={handleToggle} variant="light"  className="m-2">
+              <span className="">
                 Light <WiMoonAltFirstQuarter />
               </span>
-            </Button>:
-            <Button onClick={handleToggle} variant="dark"  className="me-2">
-              <span className="mx-2">
+            </Button>
+            :
+            <Button onClick={handleToggle} variant="dark"  className="m-2">
+              <span className="">
                 Night <WiMoonAltFirstQuarter />
               </span>
             </Button>
