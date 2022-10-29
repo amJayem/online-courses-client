@@ -10,7 +10,7 @@ const Card2 = ({course}) => {
                 <img src={bookImg} className='book-img' alt="" />
                 <h4>{courseName}</h4>
                 <p className='card-details'>{courseDetails.slice(0,250) + '...'}</p>
-                <Link to={`/course-details/${course.id}`} className="text">
+                <Link to={`/course-details/${course.id}`}>
                     <Button>Details</Button>
                 </Link>
             </div>

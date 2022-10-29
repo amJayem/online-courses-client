@@ -1,26 +1,40 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import { Link, useLoaderData } from "react-router-dom";
+import { AiFillFilePdf } from "react-icons/ai";
+import { useReactToPrint } from "react-to-print";
+import { useRef } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const CourseDetails = () => {
   const course = useLoaderData();
   // console.log(course);
 
+  const ref = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => ref.current,
+    documentTitle: "Course information",
+    onAfterPrint: () => toast("Download success"),
+  });
+
   const { id, courseName, courseDetails, bookImg, suggestedBooks } = course;
   return (
-    <div className='book-card mb-3 p-3 mx-auto my-0'>
+    <div ref={ref} className="book-card my-5 p-3 mx-auto ">
       <h3>Course ID: 3141412{id}</h3>
-    <img src={bookImg} className='book-img my-3' alt="" />
-    <h4>{courseName}</h4>
-    <p className='card-details'>{courseDetails}</p>
-    <h4>Suggested Book:</h4>
-    <p>{suggestedBooks}</p>
-    <Link to={`/cart/${id}`} className="text ">
+      <img src={bookImg} className="book-img my-3" alt="" />
+      <h4>{courseName}</h4>
+      <p className="card-details">{courseDetails}</p>
+      <h4>Suggested Book:</h4>
+      <p>{suggestedBooks}</p>
+      <Link to={`/cart/${id}`}>
         <Button variant="success">Premium Access</Button>
-    </Link> <br />
-    <Button className="mt-2">Download Course Information</Button>
-</div>
+      </Link>{" "}
+      <br />
+      <Button onClick={handlePrint} className="mt-2">
+        <AiFillFilePdf /> Download Course Information
+      </Button>
+      <Toaster />
+    </div>
   );
 };
 

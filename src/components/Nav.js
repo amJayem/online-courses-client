@@ -23,7 +23,7 @@ const Nav = () => {
   };
   return (
     <div className="px-2 mt-1">
-      <div className="bg-info d-flex flex-row p-3 mb-3 align-items-center justify-content-evenly rounded">
+      <div className=" nav-bar bg-info d-flex flex-row p-3 mb-3 align-items-center justify-content-evenly rounded">
         <div className="d-flex flex-column flex-sm-row">
           <Link to="/" className="text me-2">
             Home
