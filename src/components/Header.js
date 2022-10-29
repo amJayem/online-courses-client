@@ -1,25 +1,27 @@
 import React from "react";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import bg from "../assets/hero/hero-img.png";
 
 const Header = () => {
   return (
-    <div>
+    <div className="px-3">
       <div
-        className="hero min-h-screen rounded-b-3xl"
+        className="hero-area py-5"
         style={{ backgroundImage: `url(${bg})` }}
       >
-        <div className="hero-overlay bg-opacity-40 rounded-b-3xl"></div>
-        <div className=" text-left text-neutral-content">
-          <div className="max-w-md px-6 text-white">
-            <h1 className="mb-5 text-5xl font-bold">
-              {" "}
+        <div className=" ">
+          <div className="text-white">
+            <h1>Online Education for Everyone</h1>
+            <hr />
+            <h1 className="mb-1 ">
               Learn from expert at Home
             </h1>
-            <p className="mb-5">
+            <p className="mb-2">
               A new way of digital literacy. Learn from anywhere and build your
               career.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <Link to='/courses'><Button variant="light" >Get Started</Button></Link>
           </div>
         </div>
       </div>

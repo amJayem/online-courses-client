@@ -1,3 +1,19 @@
+.main-container{
+    background-color: #F5F6FA;
+}
+
+.hero-area{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
 .nav-logo{
     width: 90px;
     padding: 5px;
@@ -12,7 +28,7 @@
 
 .text:hover{
     background-color: ivory;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .social-icon{
@@ -26,9 +42,6 @@
     border-radius: 15px;
 }
 
-.main-container{
-    background-color: #F5F6FA;
-}
 
 .logo{
     width: 100px;
@@ -56,15 +69,7 @@
     box-shadow: 0 0 15px 0;
 }
 
-.card-details{
-    /* width: 50px; */
-}
-
 .right-nav a{
     text-decoration: none;
     font-size: 20px;
-}
-
-.footer-text{
-    width:auto;
 }

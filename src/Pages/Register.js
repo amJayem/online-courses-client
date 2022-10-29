@@ -53,7 +53,7 @@ const Register = () => {
   };
 
   return (
-    <div className="mb-5">
+    <div className="mb-5 container px-5">
       <div className="">
         <img className="logo w-2" src={logo} alt="" />
         <h1>Register Here!!</h1>

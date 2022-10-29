@@ -5,9 +5,15 @@ import logo from "../assets/logo/logo.png";
 import { WiMoonAltFirstQuarter } from "react-icons/wi";
 import { FaUserAlt, FaUserAltSlash } from "react-icons/fa";
 import { AuthContext } from "../contexts/AuthProvider";
+import { useState } from "react";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggle = () =>{
+    setToggle(!toggle);
+  }
 
   // console.log(user);
   const handleLogOut = () => {
@@ -38,11 +44,7 @@ const Nav = () => {
           </Link>
         </div>
         <div className="d-flex flex-column flex-sm-row align-items-center">
-          <Button variant="dark"  className="me-2">
-            <span className="mx-2">
-              Dark <WiMoonAltFirstQuarter />
-            </span>
-          </Button>
+          
           {user?.uid ? (
             <Button variant="secondary">
               {user?.photoURL ? (
@@ -64,10 +66,22 @@ const Nav = () => {
                 <Button>Register</Button>
               </Link>
               <Link to="/login" className="me-1">
-                <Button variant="dark">Login</Button>
+                <Button variant="warning">Login</Button>
               </Link>
             </>
           )}
+          { toggle?
+            <Button onClick={handleToggle} variant="light"  className="me-2">
+              <span className="mx-2">
+                Light <WiMoonAltFirstQuarter />
+              </span>
+            </Button>:
+            <Button onClick={handleToggle} variant="dark"  className="me-2">
+              <span className="mx-2">
+                Night <WiMoonAltFirstQuarter />
+              </span>
+            </Button>
+          }
         </div>
       </div>
     </div>

@@ -66,7 +66,7 @@ const Login = () => {
   };
 
   return (
-    <div className="mb-5 ">
+    <div className="mb-5 px-5 container">
       <div className="">
         <img className="logo w-2" src={logo} alt="" />
         <h1>Login Now!!</h1>

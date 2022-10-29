@@ -8,7 +8,7 @@ const Courses = () => {
   const courses = useLoaderData();
   // console.log(courses);
   return (
-    <div>
+    <div className="container">
       <h1>Total course: {courses.length} </h1>
 
       <div className="d-flex justify-content-evenly">
