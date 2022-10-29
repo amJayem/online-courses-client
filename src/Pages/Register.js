@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo/logo.png";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { useContext } from "react";
@@ -7,6 +7,7 @@ import { AuthContext } from "../contexts/AuthProvider";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { ButtonGroup } from "react-bootstrap";
+import { AiOutlineGithub, AiOutlineGoogle } from "react-icons/ai";
 
 const Register = () => {
   const [error, setError] = useState('');
@@ -42,7 +43,7 @@ const Register = () => {
 
     createUser(email, password)
       .then((res) => {
-        const user = res.user;
+        // const user = res.user;
         // console.log(user);
         setError('');
         navigate('/');
@@ -97,10 +98,11 @@ const Register = () => {
 
       <ButtonGroup vertical>
         <Button variant="warning" onClick={handleGoogle} className="mb-1">
-          Register with Google
+        <AiOutlineGoogle/>  Register with Google
         </Button>
 
-        <Button variant="dark" onClick={handleGithub}>Register with Github</Button>
+        <Button variant="dark" onClick={handleGithub}>
+        <AiOutlineGithub/>  Register with Github</Button>
       </ButtonGroup>
     </div>
   );

@@ -8,15 +8,17 @@ import Form from "react-bootstrap/Form";
 import { ButtonGroup } from "react-bootstrap";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { AiOutlineGithub, AiOutlineGoogle } from 'react-icons/ai'
 
 const Login = () => {
+  const { signIn, providerLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
   const location = useLocation();
+
   const from = location.state?.from?.pathname || '/';
 
-  const { signIn, providerLogin } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -25,7 +27,7 @@ const Login = () => {
     providerLogin(githubProvider)
       .then((res) => {
         console.log(res.user);
-        navigate("/");
+        navigate(from, {replace: true});
       })
       .catch((e) => {
         console.error("github login error => ", e);
@@ -37,7 +39,7 @@ const Login = () => {
     providerLogin(googleProvider)
       .then((res) => {
         // console.log(res.user);
-        navigate('/');
+        navigate(from, {replace: true});
       })
       .catch((e) => {
         console.error("register error => ", e);
@@ -61,6 +63,7 @@ const Login = () => {
       })
       .catch((e) => {
         setError(e.message);
+        toast.warning('error');
         console.error("sign in error => ", e);
       });
   };
@@ -99,10 +102,11 @@ const Login = () => {
 
       <ButtonGroup vertical>
         <Button variant="warning" onClick={handleGoogle} className="mb-1">
-          Login with Google
+        <AiOutlineGoogle/>  Login with Google
         </Button>
 
-        <Button variant="dark" onClick={handleGithub}>Login with Github</Button>
+        <Button variant="dark" onClick={handleGithub}>
+        <AiOutlineGithub/>  Login with Github</Button>
       </ButtonGroup>
     </div>
   );
