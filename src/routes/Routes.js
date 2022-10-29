@@ -7,6 +7,7 @@ import Cart from '../Pages/Cart';
 import CourseDetails from '../Pages/CourseDetails';
 import Courses from '../Pages/Courses';
 import ErrorPage from '../Pages/ErrorPage';
+import Faq from '../Pages/Faq';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
@@ -59,6 +60,10 @@ export const routes = createBrowserRouter([
                     <Cart></Cart>
                 </PrivateRoute>,
                 loader: ({params})=>fetch(`https://10-learning-platform-server.vercel.app/course-details/${params.id}`)
+            },
+            {
+                path: '/faq',
+                element: <Faq/>
             },
             {
                 path: '*',

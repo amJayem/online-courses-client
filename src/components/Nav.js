@@ -28,31 +28,31 @@ const Nav = () => {
           <Link to="/blog" className="text me-2">
             Blog
           </Link>
-          <Link to="" className="text me-2">
+          <Link to="/faq" className="text me-2">
             FAQ
           </Link>
         </div>
         <div>
-          <Link to='/' className="text">
+          <Link to='/'>
             <img src={logo} alt="" className="nav-logo" />
           </Link>
         </div>
         <div className="d-flex flex-column flex-sm-row align-items-center">
-          <Link className=" text">
+          <Button variant="dark"  className="me-2">
             <span className="mx-2">
               Dark <WiMoonAltFirstQuarter />
             </span>
-          </Link>
+          </Button>
           {user?.uid ? (
-            <Link className=" text">
+            <Button variant="secondary">
               {user?.photoURL ? (
                 <img className="profile-img" src={user.photoURL} alt="" />
               ) : (
-                <FaUserAlt></FaUserAlt>
+                <FaUserAlt/>
               )}
-            </Link>
+            </Button>
           ) : (
-            <FaUserAltSlash />
+            <span  className="p-2"><FaUserAltSlash/></span>
           )}
           {user?.uid ? (
             <Link onClick={handleLogOut} className="m-1">
