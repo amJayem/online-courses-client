@@ -46,15 +46,16 @@ const Nav = () => {
         <div className="d-flex flex-column flex-sm-row align-items-center ">
           
           {user?.uid ? (
-            <Button variant="none" className="m-2">
+            <Button variant="none" className="m-2" title={user?.email}>
               {user?.photoURL ? (
                 <img className="profile-img" src={user.photoURL} alt="" />
               ) : (
-                <FaUserAlt/>
+                <FaUserAlt title={user?.email}/>
               )}
             </Button>
           ) : (
-            <Button className="m-2" variant="secondary"><FaUserAltSlash/></Button>
+            <Button className="m-2" variant="secondary"
+            title='User not signed in'><FaUserAltSlash/></Button>
           )}
 
           {user?.uid ? (

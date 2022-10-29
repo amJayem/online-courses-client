@@ -52,6 +52,9 @@
 
 .logo{
     width: 100px;
+    background-color: skyblue;
+    /* rgb(151, 146, 140); */
+    border-radius: 10px;
 }
 
 .profile-img{
