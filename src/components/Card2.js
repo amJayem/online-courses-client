@@ -7,9 +7,9 @@ const Card2 = ({ course }) => {
   return (
     <div className="my-2 ">
       <div className="book-card mb-3 p-3 ">
-        <img src={bookImg} className="book-img" alt="" />
+        <img src={bookImg} className="book-img mx-4 p-3" alt="" />
         <h4>{courseName}</h4>
-        <p className="card-details">{courseDetails.slice(0, 120) + "..."}</p>
+        <p className="">{courseDetails.slice(0, 250) + "..."}</p>
         <Link to={`/course-details/${course.id}`}>
           <Button className="card-button">Details</Button>
         </Link>

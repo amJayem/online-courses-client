@@ -19,21 +19,25 @@ const CourseDetails = () => {
 
   const { id, courseName, courseDetails, bookImg, suggestedBooks } = course;
   return (
-    <div ref={ref} className="book-card my-5 p-3 mx-auto ">
-      <h3>Course ID: 3141412{id}</h3>
-      <img src={bookImg} className="book-img my-3" alt="" />
-      <h4>{courseName}</h4>
-      <p className="card-details">{courseDetails}</p>
-      <h4>Suggested Book:</h4>
-      <p>{suggestedBooks}</p>
-      <Link to={`/cart/${id}`}>
-        <Button variant="success">Premium Access</Button>
-      </Link>{" "}
-      <br />
-      <Button onClick={handlePrint} className="mt-2">
-        <AiFillFilePdf /> Download Course Information
-      </Button>
-      <Toaster />
+    <div className="container">
+      <div ref={ref} className="p-3">
+        <h3>Course ID: 3141412{id}</h3>
+        <img src={bookImg} className="book-img my-3" alt="" />
+        <h4>{courseName}</h4>
+        <p className="card-details">{courseDetails}</p>
+        <h4>Suggested Book:</h4>
+        <p>{suggestedBooks}</p>
+      </div>
+      <div className="my-5 p-3 mx-auto ">
+        <Link to={`/cart/${id}`}>
+          <Button variant="success">Premium Access</Button>
+        </Link>{" "}
+        <br />
+        <Button onClick={handlePrint} className="mt-2">
+          <AiFillFilePdf /> Download Course Information
+        </Button>
+        <Toaster />
+      </div>
     </div>
   );
 };
