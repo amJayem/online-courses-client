@@ -9,12 +9,16 @@ const Home = () => {
   return (
     <div>
       <Header></Header>
-      <h1 className="container">Available Courses</h1>
-      {courses.map((course) => (
-        <>
-          <Card2 key={course.id} course={course}></Card2>
-        </>
-      ))}
+      <div className="container">
+        <h1 className="mt-5">Available Courses</h1>
+        <div className="book-grid my-5">
+          {courses?.map((course, i) => (
+            <div className="" key={i}>
+              <Card2 key={course.id} course={course}></Card2>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,8 @@
-.main-container{
+.main-container {
     background-color: #F5F6FA;
 }
 
-.hero-area{
+.hero-area {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,74 +16,117 @@
     box-shadow: 0 0 15px -5px;
 }
 
-.nav-bar{
+.nav-bar {
     box-shadow: 0 0 15px -5px;
 }
 
-.nav-logo{
+.nav-logo {
     width: 90px;
     padding: 5px;
     border-radius: 15px;
 }
 
-.text{
+.text {
     font-weight: bold;
     text-decoration: none;
     color: white;
     padding: 2px;
 }
 
-.text:hover{
+.text:hover {
     background-color: ivory;
     border-radius: 10px;
 }
 
-.social-icon{
+.social-icon {
     text-decoration: none;
     color: white;
     margin-right: 5px;
 }
 
-.social-icon:hover{
+.social-icon:hover {
     color: black;
     border-radius: 15px;
 }
 
 
-.logo{
+.logo {
     width: 100px;
     background-color: skyblue;
     /* rgb(151, 146, 140); */
     border-radius: 10px;
 }
 
-.profile-img{
+.profile-img {
     width: 50px;
     border-radius: 50%;
 }
 
-.book-img{
-    width: 50%;
+.book-img {
+    width: 200px;
 }
 
-.book-card{
+.book-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px;
+    justify-content: space-evenly;
+    justify-items: center;
+}
+
+.book-card {
     background-color: #B8E8FC;
     border-radius: 25px;
-    width: 45%;
+    width: 230px;
+    height: 580px;
     box-shadow: 0 0 15px -5px;
     transition: 0.5s;
     animation: ease-in-out;
+    position: relative;
 }
-.book-card:hover{
+.card-button{
+    position: absolute;
+    bottom: 10px;
+    left: 16px;
+}
+
+.book-card:hover {
     transform: scale(1.009);
     box-shadow: 0 0 15px 0;
 }
 
-.right-nav a{
-    text-decoration: none;
-    font-size: 20px;
+footer {
+    box-shadow: 0 0 15px -5px;
 }
 
-footer{
-    box-shadow: 0 0 15px -5px;
+@media only screen and (max-width: 1000px) {
+
+    .book-grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 20px;
+        justify-content: space-evenly;
+        justify-items: center;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    .book-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 20px;
+        justify-content: space-evenly;
+        justify-items: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .book-grid {
+        display: grid;
+        grid-template-columns: auto ;
+        grid-gap: 20px;
+        justify-items: center;
+    }
 }
